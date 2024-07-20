@@ -11,13 +11,13 @@
 }:
 
 let
-  version = "1.13.2";
+  version = "1.14.0";
 
   src = fetchFromGitHub {
     owner = "detachhead";
     repo = "basedpyright";
     rev = "refs/tags/v${version}";
-    hash = "sha256-Qi5MYyNrEH56hNa2HHeSrnZQvJTkLXVIpCHUJCzOM+c=";
+    hash = "sha256-WNXIlBdnubV8hbhLXNOpoO5llN0h3G820BkX5cgRU1A=";
   };
 
   patchedPackageJSON = runCommand "package.json" { } ''
@@ -47,7 +47,7 @@ let
     pname = "pyright-internal";
     inherit version src;
     sourceRoot = "${src.name}/packages/pyright-internal";
-    npmDepsHash = "sha256-eEBlX2F3B/njTb2sONXzDqe+a2TVddam7NDXt5s8QFs=";
+    npmDepsHash = "sha256-68+HmPFsiC01c+B0zD/b8FTemzVrc6wnUvcjWj5uWNo=";
     dontNpmBuild = true;
     # FIXME: Remove this flag when TypeScript 5.5 is released
     npmFlags = [ "--legacy-peer-deps" ];
@@ -94,12 +94,11 @@ buildNpmPackage rec {
   inherit version src;
 
   sourceRoot = "${src.name}/packages/pyright";
-  npmDepsHash = "sha256-JIpbef6ADktKILifRra4jrfdLHY1o/eFsdVkwQupMZw=";
+  npmDepsHash = "sha256-SN1x7D+HZHRmlixTzZFcuG929lEEWpd813EtgwHtdRM=";
 
   postPatch = ''
     chmod +w ../../
-    mkdir ../../docstubs
-    ln -s ${docstubs}/stubs ../../docstubs
+    ln -s ${docstubs} ../../docstubs
     ln -s ${pyright-root}/node_modules ../../node_modules
     chmod +w ../pyright-internal
     ln -s ${pyright-internal}/node_modules ../pyright-internal/node_modules
