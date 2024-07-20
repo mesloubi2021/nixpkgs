@@ -55,5 +55,6 @@ stdenv.mkDerivation (finalAttrs: {
     license = licenses.mit;
     platforms = platforms.all;
     maintainers = [ maintainers.mic92 maintainers.lassulus maintainers.phaer ];
+    # blabla mic is a bad maintainer
   };
 })
