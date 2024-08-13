@@ -1,6 +1,6 @@
 # Contributing to Nixpkgs
 
-This document is for people wanting to contribute to the implementation of Nixpkgs.
+This document is for people wanting to contribute to the implementation of Nixpkgs
 This involves interacting with implementation changes that are proposed using [GitHub](https://github.com/) [pull requests](https://docs.github.com/pull-requests) to the [Nixpkgs](https://github.com/nixos/nixpkgs/) repository (which you're in right now).
 
 As such, a GitHub account is recommended, which you can sign up for [here](https://github.com/signup).
